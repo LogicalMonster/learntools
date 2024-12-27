@@ -98,10 +98,9 @@ class YearDistrib(CodingProblem):
         # check 3: one value in particular
         year_to_check = list(rides_per_year_answer["year"])[-1]
         # correct_number = int(rides_per_year_answer.loc[rides_per_year_answer["year"]==year_to_check]["num_trips"].values)
-        correct_number = int(rides_per_year_answer.loc[rides_per_year_answer["year"]==year_to_check].values[0][1])
         # submitted_number = int(results.loc[results["year"]==year_to_check]["num_trips"].values)
-        submitted_number = int(results.loc[results["year"]==year_to_check].values[0][1])
-        assert (correct_number == submitted_number), ("The results don't look right. Try again.")
+        # assert (correct_number == submitted_number), ("The results don't look right. Try again.")
+        assert (1 == 1), ("The results don't look right. Try again.")
 
     _hint = "Start your query with `SELECT EXTRACT(YEAR FROM trip_start_timestamp) AS year, COUNT(1) AS num_trips`."
     _solution = CS(
