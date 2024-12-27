@@ -90,18 +90,18 @@ class YearDistrib(CodingProblem):
     _var = 'rides_per_year_result'
     def check(self, results):
         # check 1: column names
-        # results.columns = [c.lower() for c in results.columns]
-        # assert ('year' in results.columns), ('Your results should have a `year` column. But your columns are {}.'.format(list(results.columns)))
-        # assert ('num_trips' in results.columns), ('Your results should have a `num_trips` column. But your columns are {}.'.format(list(results.columns)))
+        results.columns = [c.lower() for c in results.columns]
+        assert ('year' in results.columns), ('Your results should have a `year` column. But your columns are {}.'.format(list(results.columns)))
+        assert ('num_trips' in results.columns), ('Your results should have a `num_trips` column. But your columns are {}.'.format(list(results.columns)))
         # check 2: length of dataframe
-        # assert (len(results) == len(rides_per_year_answer)), ("The results don't look right. Try again.")
+        assert (len(results) == len(rides_per_year_answer)), ("The results don't look right. Try again.")
         # check 3: one value in particular
-        # year_to_check = list(rides_per_year_answer["year"])[-1]
-        # year_to_check = list(rides_per_year_answer["year"])[0]
+        year_to_check = list(rides_per_year_answer["year"])[-1]
         # correct_number = int(rides_per_year_answer.loc[rides_per_year_answer["year"]==year_to_check]["num_trips"].values)
+        correct_number = rides_per_year_answer.loc[rides_per_year_answer["year"]==year_to_check]["num_trips"].values[0][1]
         # submitted_number = int(results.loc[results["year"]==year_to_check]["num_trips"].values)
-        # assert (correct_number == submitted_number), ("The results don't look right. Try again.")
-        assert (1 == 1), ("The results don't look right. Try again.")
+        submitted_number = results.loc[results["year"]==year_to_check]["num_trips"].values[0][1]
+        assert (correct_number == submitted_number), ("The results don't look right. Try again.")
 
     _hint = "Start your query with `SELECT EXTRACT(YEAR FROM trip_start_timestamp) AS year, COUNT(1) AS num_trips`."
     _solution = CS(
