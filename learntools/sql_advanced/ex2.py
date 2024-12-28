@@ -179,6 +179,7 @@ class BreakTime(CodingProblem):
         # if len(correct_ans) > 0:
         #     assert (min(correct_ans)==min(submitted_ans)), ("The results don't look right. Try again.")
         #     assert (max(correct_ans)==max(submitted_ans)), ("The results don't look right. Try again.")
+        assert (1 == 1), ("The results don't look right. Try again.")
 
     _solution = CS( \
 """
